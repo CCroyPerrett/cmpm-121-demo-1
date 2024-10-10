@@ -32,11 +32,30 @@ button.addEventListener("click", () => {
 
 //setInterval(()=>{incriment()}, 1000)
 
+let growth_rate = 1; console.log("growth is now: " + growth_rate)
 requestAnimationFrame((timestamp) => {
 
     setInterval(()=>{
-        count += 1/(1000/timestamp); 
+        count += growth_rate/(1000/timestamp); 
         counter.innerHTML = "Clues Found = " + count;
     },timestamp)
     
 });
+
+
+const upgrade = document.createElement("button");
+//button.type = "button";
+upgrade .innerHTML = "Hire a Watson (Costs 10)";
+upgrade.addEventListener("click", () => {
+    if(count >= 10){
+        count -= 10;
+        growth_rate += 1; console.log("growth is now: " + growth_rate)
+
+        /*const watson = document.createElement("h5");
+        watson.innerHTML = '\t' + "🕵️"
+        app.append(watson);*/
+    }
+});
+app.append(upgrade);
+
+
