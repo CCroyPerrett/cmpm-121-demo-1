@@ -15,31 +15,18 @@ button.innerHTML = "Investigate 🔎";
 
 app.append(button);
 
-/*function incriment(){
-    const counter = document.getElementById("counter");
-    if(counter != null){
-        count ++; counter.innerHTML = "Clues Found = " + count;
-        console.log("count is now: " + count);
-    }
-    //count ++; counter.innerHTML = "Clues Found = " + count;
-    console.log("count is now: " + count);
-    
-  }*/
 
 let count: number = -1; count ++;
 const counter = document.createElement("div"); counter.id = "counter";
 counter.innerHTML = "Clues Found = " + count;
 app.append(counter);
 
-button.addEventListener("click", () => {
+function incriment(){
     counter.innerHTML = "Clues Found = " + ++count;
+}
+
+button.addEventListener("click", () => {
+    incriment();
 })
 
-//app.append(cnt);
-
-/*function handleClick(event: MouseEvent) {
-    console.log('Button clicked!');
-}
-const element = document.querySelector('.element');
-if(element!= null)
-element.addEventListener('click', handleClick);*/
+setInterval(()=>{incriment()}, 1000)
