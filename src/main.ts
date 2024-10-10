@@ -21,12 +21,22 @@ const counter = document.createElement("div"); counter.id = "counter";
 counter.innerHTML = "Clues Found = " + count;
 app.append(counter);
 
-function incriment(){
-    counter.innerHTML = "Clues Found = " + ++count;
+function incriment(addition : number = 1){
+    count += addition; 
+    counter.innerHTML = "Clues Found = " + count;
 }
 
 button.addEventListener("click", () => {
     incriment();
 })
 
-setInterval(()=>{incriment()}, 1000)
+//setInterval(()=>{incriment()}, 1000)
+
+requestAnimationFrame((timestamp) => {
+
+    setInterval(()=>{
+        count += 1/(1000/timestamp); 
+        counter.innerHTML = "Clues Found = " + count;
+    },timestamp)
+    
+});
