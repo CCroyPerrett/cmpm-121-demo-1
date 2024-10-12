@@ -43,19 +43,44 @@ requestAnimationFrame((timestamp) => {
 });
 
 
-const upgrade = document.createElement("button");
-//button.type = "button";
-upgrade .innerHTML = "Hire a Watson (Costs 10)";
-upgrade.addEventListener("click", () => {
+const upgrade1 = document.createElement("button");
+upgrade1 .innerHTML = "Hire a Watson (Costs 10)";
+upgrade1.addEventListener("click", () => {
     if(count >= 10){
         count -= 10;
-        growth_rate += 1; console.log("growth is now: " + growth_rate)
-
+        growth_rate += 0.1; console.log("growth is now: " + growth_rate)
         /*const watson = document.createElement("h5");
         watson.innerHTML = '\t' + "🕵️"
         app.append(watson);*/
     }
 });
-app.append(upgrade);
+app.append(upgrade1);
+
+const upgrade2 = document.createElement("button");
+upgrade2 .innerHTML = "Hire a Constable (Costs 100)";
+upgrade2.addEventListener("click", () => {
+    if(count >= 100){
+        count -= 100;
+        growth_rate += 2; 
+        /*const watson = document.createElement("h5");
+        watson.innerHTML = '\t' + "🕵️"
+        app.append(watson);*/
+    }
+});
+app.append(upgrade2);
+
+const upgrade3 = document.createElement("button");
+upgrade3 .innerHTML = "Hire a Sherlock (Costs 1000)";
+upgrade3.addEventListener("click", () => {
+    if(count >= 1000){
+        count -= 1000;
+        growth_rate += 50; 
+        /*const watson = document.createElement("h5");
+        watson.innerHTML = '\t' + "🕵️"
+        app.append(watson);*/
+    }
+});
+app.append(upgrade3);
+
 
 
