@@ -37,18 +37,20 @@ requestAnimationFrame((timestamp) => {
 
     setInterval(()=>{
         count += growth_rate/(1000/timestamp); 
-        counter.innerHTML = "Clues Found = " + count;
+        counter.innerHTML = "Mysteries Solved = " + count.toFixed(6);
     },timestamp)
     
 });
 
 
 const upgrade1 = document.createElement("button");
-upgrade1 .innerHTML = "Hire a Watson (Costs 10)";
+upgrade1.innerHTML = "Hire a Watson (Costs 10)";
+let cost1 = 10
 upgrade1.addEventListener("click", () => {
-    if(count >= 10){
-        count -= 10;
+    if(count >= cost1){
+        count -= cost1; cost1 *= 1.15
         growth_rate += 0.1; console.log("growth is now: " + growth_rate)
+        upgrade1 .innerHTML = "Hire a Watson (Costs " + cost1.toFixed(3) + ")";
         /*const watson = document.createElement("h5");
         watson.innerHTML = '\t' + "🕵️"
         app.append(watson);*/
@@ -57,27 +59,25 @@ upgrade1.addEventListener("click", () => {
 app.append(upgrade1);
 
 const upgrade2 = document.createElement("button");
-upgrade2 .innerHTML = "Hire a Constable (Costs 100)";
+upgrade2.innerHTML = "Hire a Constable (Costs 100)";
+let cost2 = 100
 upgrade2.addEventListener("click", () => {
-    if(count >= 100){
-        count -= 100;
+    if(count >= cost2){
+        count -= cost2; cost2 *= 1.15;
         growth_rate += 2; 
-        /*const watson = document.createElement("h5");
-        watson.innerHTML = '\t' + "🕵️"
-        app.append(watson);*/
+        upgrade2 .innerHTML = "Hire a Constable (Costs " + cost2.toFixed(3) + ")";
     }
 });
 app.append(upgrade2);
 
 const upgrade3 = document.createElement("button");
 upgrade3 .innerHTML = "Hire a Sherlock (Costs 1000)";
+let cost3 = 1000
 upgrade3.addEventListener("click", () => {
-    if(count >= 1000){
-        count -= 1000;
+    if(count >= cost3){
+        count -= cost3; cost3 *= 1.15;
         growth_rate += 50; 
-        /*const watson = document.createElement("h5");
-        watson.innerHTML = '\t' + "🕵️"
-        app.append(watson);*/
+        upgrade3 .innerHTML = "Hire a Sherlock (Costs " + cost3.toFixed(3) + ")";
     }
 });
 app.append(upgrade3);
