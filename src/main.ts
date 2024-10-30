@@ -92,13 +92,19 @@ app.append(upgrade5);
 function buyInvestigator(index:number, emoji:string, button:Element){
     if(count >= availableItems[index].cost){
         count -= availableItems[index].cost; availableItems[index].cost *= 1.15
-        growth_rate += availableItems[index].skill; console.log("growth is now: " + growth_rate)
+        growth_rate += availableItems[index].skill; 
+
+        updateGameText(index, emoji, button);
+    }
+}
+    
+    function updateGameText(index:number, emoji:string, button:Element){
+        console.log("growth is now: " + growth_rate)
         button.innerHTML = "Hire a " + availableItems[index].name +  " " + emoji 
         + "Costs (" + availableItems[index].cost.toFixed(3) + ")";
         growthtxt.innerHTML = "Growth Rate: " + growth_rate.toFixed(1)+ " per second";
         descriptionDiv.innerHTML += emoji;
     }
-}
 
 const description = document.createElement("div"); 
 description.innerHTML = "";
