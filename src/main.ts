@@ -10,7 +10,6 @@ header.innerHTML = gameName;
 app.append(header);
 
 const button = document.createElement("button");
-//button.type = "button";
 button.innerHTML = "Investigate 🔎";
 
 app.append(button);
@@ -45,9 +44,8 @@ button.addEventListener("click", () => {
     incriment();
 })
 
-//setInterval(()=>{incriment()}, 1000)
 
-let growth_rate = 1; //console.log("growth is now: " + growth_rate)
+let growth_rate = 1; 
 const growthtxt = document.createElement("div"); 
 growthtxt.innerHTML = "Growth Rate: " + growth_rate + " per second";
 app.append(growthtxt);
