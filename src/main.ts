@@ -9,28 +9,30 @@ const header = document.createElement("h1");
 header.innerHTML = gameName;
 app.append(header);
 
-const button = document.createElement("button");
-button.innerHTML = "Investigate 🔎";
-
-app.append(button);
+let growth_rate = 1; 
+let count: number = -0;
 
 interface Item {
     name: string,
     cost: number,
     skill: number,
     desc: string
-  };
+};
   
-  const availableItems : Item[] = [
+const availableItems : Item[] = [
     {name: "Watson", cost: 10, skill: 0.1, desc:"New to the job, but willing to join for little prestiege."},
     {name: "Constable", cost: 100, skill: 2, desc:"A hardened professional. Knows what they're doing."},
     {name: "Sherlock", cost: 1000, skill: 50, desc:"When the possible has been exhausted, knows to look for the impossible explanations."},
     {name: "Oracle", cost: 10000, skill: 50*3, desc:"Utilizes magic to consult the god's wisdom on mysterious matters."},
     {name: "Immortal Machine God", cost: 100000, skill: 50*3*5, desc:"Sees past the veil that binds all things."},
-  ];
+];
+
+const button = document.createElement("button");
+button.innerHTML = "Investigate 🔎";
+
+app.append(button);
 
 
-let count: number = -1; count ++;
 const counter = document.createElement("div"); counter.id = "counter";
 counter.innerHTML = "Clues Found = " + count;
 app.append(counter);
@@ -44,8 +46,6 @@ button.addEventListener("click", () => {
     incriment();
 })
 
-
-let growth_rate = 1; 
 const growthtxt = document.createElement("div"); 
 growthtxt.innerHTML = "Growth Rate: " + growth_rate + " per second";
 app.append(growthtxt);
@@ -59,24 +59,8 @@ requestAnimationFrame((timestamp) => {
     
 });
 
-const chardiv = document.createElement("div"); 
-chardiv.innerHTML = "Your Investigation Team: ";
-
-
 const upgrade1 = document.createElement("button");
 upgrade1.innerHTML = "Hire a Watson 👨‍💼(Costs "+ availableItems[0].cost+ ")";
-
-function buy(index:number, emoji:string, button:Element){
-    if(count >= availableItems[index].cost){
-        count -= availableItems[index].cost; availableItems[index].cost *= 1.15
-        growth_rate += availableItems[index].skill; console.log("growth is now: " + growth_rate)
-        button.innerHTML = "Hire a " + availableItems[index].name +  " " + emoji 
-        + "Costs (" + availableItems[index].cost.toFixed(3) + ")";
-        growthtxt.innerHTML = "Growth Rate: " + growth_rate.toFixed(1)+ " per second";
-        chardiv.innerHTML += emoji;
-    }
-}
-
 upgrade1.addEventListener("click", () => {buy(0, "👨‍💼", upgrade1);});
 upgrade1.addEventListener("mouseover", () => {summon_description(0)});
 app.append(upgrade1);
@@ -105,6 +89,17 @@ upgrade5.addEventListener("click", () => {buy(2, "🤖", upgrade5);});
 upgrade5.addEventListener("mouseover", () => {summon_description(4)});
 app.append(upgrade5);
 
+function buy(index:number, emoji:string, button:Element){
+    if(count >= availableItems[index].cost){
+        count -= availableItems[index].cost; availableItems[index].cost *= 1.15
+        growth_rate += availableItems[index].skill; console.log("growth is now: " + growth_rate)
+        button.innerHTML = "Hire a " + availableItems[index].name +  " " + emoji 
+        + "Costs (" + availableItems[index].cost.toFixed(3) + ")";
+        growthtxt.innerHTML = "Growth Rate: " + growth_rate.toFixed(1)+ " per second";
+        chardiv.innerHTML += emoji;
+    }
+}
+
 const description = document.createElement("div"); 
 description.innerHTML = "";
 app.append(description);
@@ -113,6 +108,8 @@ function summon_description(index: number){
     description.innerHTML = availableItems[index].name + ". " + availableItems[index].desc;
 }
 
+const chardiv = document.createElement("div"); 
+chardiv.innerHTML = "Your Investigation Team: ";
 app.append(chardiv);
 
 
