@@ -20,11 +20,11 @@ interface Investigator {
 };
   
 const availableItems : Investigator[] = [
-    {name: "Watson", cost: 10, skill: 0.1, desc:"New to the job, but willing to join for little prestiege."},
-    {name: "Constable", cost: 100, skill: 2, desc:"A hardened professional. Knows what they're doing."},
-    {name: "Sherlock", cost: 1000, skill: 50, desc:"When the possible has been exhausted, knows to look for the impossible explanations."},
-    {name: "Oracle", cost: 10000, skill: 1000, desc:"Utilizes magic to consult the god's wisdom on mysterious matters."},
-    {name: "Immortal Machine God", cost: 100000, skill: 6000, desc:"Sees past the veil that binds all things."},
+    {name: "Watson", cost: 10, skill: 0.1, desc:"A rookie, but willing to join for little prestiege."},
+    {name: "Columbo", cost: 100, skill: 2, desc:"A professional. Can get a mean cuplrit to underestimate and slip up."},
+    {name: "Kigiri", cost: 1000, skill: 50, desc:"An Ultimate. She may be young, but Hope's Peak has crowned her the Ultimate Detective for a reason."},
+    {name: "L", cost: 10000, skill: 1000, desc:"World Class. Bad posture, but his guts and manipulation can throw even the smartest off their game."},
+    {name: "Sherlock", cost: 100000, skill: 6000, desc:"A Legend. A Myth. A Man. Through his mind palace he sees all."},
 ];
 
 const button = document.createElement("button");
@@ -66,26 +66,26 @@ upgrade1.addEventListener("mouseover", () => {investigatorDescription(0)});
 app.append(upgrade1);
 
 const upgrade2 = document.createElement("button");
-upgrade2.innerHTML = "Hire a Constable 👮‍♂️(Costs 100)";
+upgrade2.innerHTML = "Hire a Columbo 👮‍♂️(Costs 100)";
 upgrade2.addEventListener("click", () => {buyInvestigator(1, "👮‍♂️", upgrade2);});
 upgrade2.addEventListener("mouseover", () => {investigatorDescription(1)});
 app.append(upgrade2);
 
 const upgrade3 = document.createElement("button");
-upgrade3 .innerHTML = "Hire a Sherlock 🕵️(Costs 1000)";
-upgrade3.addEventListener("click", () => {buyInvestigator(2, "🕵️", upgrade3);});
+upgrade3 .innerHTML = "Hire a Kigiri 👩‍🔬(Costs 1000)";
+upgrade3.addEventListener("click", () => {buyInvestigator(2, "👩‍🔬", upgrade3);});
 upgrade3.addEventListener("mouseover", () => {investigatorDescription(2)});
 app.append(upgrade3);
 
 const upgrade4 = document.createElement("button");
-upgrade4 .innerHTML = "Hire an Oracle 🧙‍♀️(Costs 10000)";
-upgrade4.addEventListener("click", () => {buyInvestigator(2, "🧙‍♀️", upgrade4);});
+upgrade4 .innerHTML = "Hire an L 👨‍🦱(Costs 10000)";
+upgrade4.addEventListener("click", () => {buyInvestigator(2, "👨‍🦱", upgrade4);});
 upgrade4.addEventListener("mouseover", () => {investigatorDescription(3)});
 app.append(upgrade4);
 
 const upgrade5 = document.createElement("button");
-upgrade5 .innerHTML = "Hire an Immortal Machine God 🤖(Costs 100000)";
-upgrade5.addEventListener("click", () => {buyInvestigator(2, "🤖", upgrade5);});
+upgrade5 .innerHTML = "Hire a Sherlock 🕵️(Costs 100000)";
+upgrade5.addEventListener("click", () => {buyInvestigator(2, "🕵️", upgrade5);});
 upgrade5.addEventListener("mouseover", () => {investigatorDescription(4)});
 app.append(upgrade5);
 
