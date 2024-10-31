@@ -29,6 +29,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(./src/img/Background.bmp);
+  font-family: serif;
+  font-weight: bold;
 }
 
 h1 {
@@ -41,6 +44,10 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+div{
+  color:black
 }
 
 button {
